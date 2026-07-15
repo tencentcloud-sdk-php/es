@@ -18,19 +18,29 @@ namespace TencentCloud\Es\V20180416\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * RequestInstancesByGet返回参数结构体
+ * DescribeEsInstanceEventLists返回参数结构体
  *
- * @method string getDetail() 获取<p>集群返回信息</p>
- * @method void setDetail(string $Detail) 设置<p>集群返回信息</p>
+ * @method integer getTotalCount() 获取事件中心记录总数
+ * @method void setTotalCount(integer $TotalCount) 设置事件中心记录总数
+ * @method array getEventDataInfoList() 获取事件中心记录信息
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setEventDataInfoList(array $EventDataInfoList) 设置事件中心记录信息
+注意：此字段可能返回 null，表示取不到有效值。
  * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
-class RequestInstancesByGetResponse extends AbstractModel
+class DescribeEsInstanceEventListsResponse extends AbstractModel
 {
     /**
-     * @var string <p>集群返回信息</p>
+     * @var integer 事件中心记录总数
      */
-    public $Detail;
+    public $TotalCount;
+
+    /**
+     * @var array 事件中心记录信息
+注意：此字段可能返回 null，表示取不到有效值。
+     */
+    public $EventDataInfoList;
 
     /**
      * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
@@ -38,7 +48,9 @@ class RequestInstancesByGetResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param string $Detail <p>集群返回信息</p>
+     * @param integer $TotalCount 事件中心记录总数
+     * @param array $EventDataInfoList 事件中心记录信息
+注意：此字段可能返回 null，表示取不到有效值。
      * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -54,8 +66,17 @@ class RequestInstancesByGetResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Detail",$param) and $param["Detail"] !== null) {
-            $this->Detail = $param["Detail"];
+        if (array_key_exists("TotalCount",$param) and $param["TotalCount"] !== null) {
+            $this->TotalCount = $param["TotalCount"];
+        }
+
+        if (array_key_exists("EventDataInfoList",$param) and $param["EventDataInfoList"] !== null) {
+            $this->EventDataInfoList = [];
+            foreach ($param["EventDataInfoList"] as $key => $value){
+                $obj = new EventDataInfoOverview();
+                $obj->deserialize($value);
+                array_push($this->EventDataInfoList, $obj);
+            }
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

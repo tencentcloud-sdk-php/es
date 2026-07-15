@@ -18,36 +18,36 @@ namespace TencentCloud\Es\V20180416\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * RequestInstancesByGet请求参数结构体
+ * DescribeForceMergeTask请求参数结构体
  *
- * @method string getInstanceId() 获取<p>集群id</p>
- * @method void setInstanceId(string $InstanceId) 设置<p>集群id</p>
- * @method string getUri() 获取<p>请求路径</p>
- * @method void setUri(string $Uri) 设置<p>请求路径</p>
- * @method string getCaller() 获取<p>调用方</p>
- * @method void setCaller(string $Caller) 设置<p>调用方</p>
+ * @method string getInstanceId() 获取集群实例ID
+ * @method void setInstanceId(string $InstanceId) 设置集群实例ID
+ * @method integer getOffset() 获取分页页数
+ * @method void setOffset(integer $Offset) 设置分页页数
+ * @method integer getLimit() 获取每页展示记录条数
+ * @method void setLimit(integer $Limit) 设置每页展示记录条数
  */
-class RequestInstancesByGetRequest extends AbstractModel
+class DescribeForceMergeTaskRequest extends AbstractModel
 {
     /**
-     * @var string <p>集群id</p>
+     * @var string 集群实例ID
      */
     public $InstanceId;
 
     /**
-     * @var string <p>请求路径</p>
+     * @var integer 分页页数
      */
-    public $Uri;
+    public $Offset;
 
     /**
-     * @var string <p>调用方</p>
+     * @var integer 每页展示记录条数
      */
-    public $Caller;
+    public $Limit;
 
     /**
-     * @param string $InstanceId <p>集群id</p>
-     * @param string $Uri <p>请求路径</p>
-     * @param string $Caller <p>调用方</p>
+     * @param string $InstanceId 集群实例ID
+     * @param integer $Offset 分页页数
+     * @param integer $Limit 每页展示记录条数
      */
     function __construct()
     {
@@ -66,12 +66,12 @@ class RequestInstancesByGetRequest extends AbstractModel
             $this->InstanceId = $param["InstanceId"];
         }
 
-        if (array_key_exists("Uri",$param) and $param["Uri"] !== null) {
-            $this->Uri = $param["Uri"];
+        if (array_key_exists("Offset",$param) and $param["Offset"] !== null) {
+            $this->Offset = $param["Offset"];
         }
 
-        if (array_key_exists("Caller",$param) and $param["Caller"] !== null) {
-            $this->Caller = $param["Caller"];
+        if (array_key_exists("Limit",$param) and $param["Limit"] !== null) {
+            $this->Limit = $param["Limit"];
         }
     }
 }
